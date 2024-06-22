@@ -8,5 +8,20 @@ return {
 	},
 	config = function()
 		vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>", {})
+		require("neo-tree").setup({
+			filesystem = {
+				filtered_items = {
+					visible = true,
+					never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
+						".DS_Store",
+						"thumbs.db",
+                        "__pycache__",
+                        ".idea",
+                        ".git",
+					},
+                    hide_gitignored = true,
+				},
+			},
+		})
 	end,
 }
