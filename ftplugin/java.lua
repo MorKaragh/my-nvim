@@ -1,17 +1,12 @@
 local jdtls = require("jdtls")
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-local workspace_dir = vim.env.HOME .. "/workspace/" .. project_name
+local workspace_dir = vim.env.HOME .. '/workspace/jdtls-workspace/' .. project_name
 
 local bundles = {
-	vim.fn.glob(
-		vim.env.HOME .. "/.local/share/nvim/mason/share/java-debug-adapter/com.microsoft.java.debug.plugin.jar"
-	),
+  vim.fn.glob(vim.env.HOME .. '/.local/share/nvim/mason/share/java-debug-adapter/com.microsoft.java.debug.plugin.jar'),
 }
 
-vim.list_extend(
-	bundles,
-	vim.split(vim.fn.glob(vim.env.HOME .. "/.local/share/nvim/mason/share/java-test/*.jar", 1), "\n")
-)
+vim.list_extend(bundles, vim.split(vim.fn.glob(vim.env.HOME .. "/.local/share/nvim/mason/share/java-test/*.jar", 1), "\n"))
 
 local sdkman = vim.env.HOME .. "/.sdkman/candidates/java/"
 
@@ -31,13 +26,13 @@ local config = {
 		"--add-opens",
 		"java.base/java.lang=ALL-UNNAMED",
 		"-jar",
-		vim.env.HOME .. "/home/Sergei/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.800.v20240330-1250.jar",
+		vim.env.HOME .. "/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.800.v20240330-1250.jar",
 		"-configuration",
 		vim.env.HOME .. "/.local/share/nvim/mason/packages/jdtls/config_linux",
 		"-data",
 		workspace_dir,
 	},
-	cmd = { vim.fn.expand("~/.local/share/nvim/mason/bin/jdtls") },
+	-- cmd = { vim.fn.expand("~/.local/share/nvim/mason/bin/jdtls") },
 	root_dir = vim.fs.dirname(vim.fs.find({ "gradlew", ".git", "mvnw" }, { upward = true })[1]),
 	settings = {
 		java = {
@@ -122,27 +117,3 @@ end
 
 jdtls.start_or_attach(config)
 
-local keymap = vim.keymap
-keymap.set("n", "<leader>ro", function()
-	if vim.bo.filetype == "java" then
-		require("jdtls").organize_imports()
-	end
-end)
-
-keymap.set("n", "<leader>gu", function()
-	if vim.bo.filetype == "java" then
-		require("jdtls").update_projects_config()
-	end
-end)
-
-keymap.set("n", "<leader>tc", function()
-	if vim.bo.filetype == "java" then
-		require("jdtls").test_class()
-	end
-end)
-
-keymap.set("n", "<leader>tm", function()
-	if vim.bo.filetype == "java" then
-		require("jdtls").test_nearest_method()
-	end
-end)
