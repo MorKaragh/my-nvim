@@ -5,4 +5,5 @@ vim.cmd("set shiftwidth=4")
 vim.cmd("set number")
 vim.g.mapleader = " "
 vim.cmd("set clipboard+=unnamedplus")
-
+vim.cmd("set relativenumber")
+vim.cmd("set rnu")
