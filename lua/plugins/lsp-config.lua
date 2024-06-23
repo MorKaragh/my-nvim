@@ -14,6 +14,17 @@ return {
 		end,
 	},
 	{
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		config = function()
+			require("mason-tool-installer").setup({
+				ensure_installed = {
+					"java-debug-adapter",
+					"java-test",
+				},
+			})
+		end,
+	},
+	{
 		"neovim/nvim-lspconfig",
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -22,9 +33,6 @@ return {
 				capabilities = capabilities,
 			})
 			lspconfig.gopls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.jdtls.setup({
 				capabilities = capabilities,
 			})
 			lspconfig.yamlls.setup({
@@ -43,5 +51,9 @@ return {
 	},
 	{
 		"mfussenegger/nvim-jdtls",
+		ft = "java",
+		dependencies = {
+			"nvim-dap",
+		},
 	},
 }
