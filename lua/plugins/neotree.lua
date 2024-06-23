@@ -15,11 +15,13 @@ return {
 					never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
 						".DS_Store",
 						"thumbs.db",
-                        "__pycache__",
-                        ".idea",
-                        ".git",
+						"__pycache__",
+						".idea",
+						".git",
+						".project",
+						".settings",
 					},
-                    hide_gitignored = true,
+					hide_gitignored = true,
 				},
 			},
 		})
