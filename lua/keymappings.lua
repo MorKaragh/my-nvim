@@ -10,7 +10,7 @@ keymap.set("n", "<leader>wq", ":wq<CR>") -- save and quit
 keymap.set("n", "<leader>qq", ":q!<CR>") -- quit without saving
 keymap.set("n", "<leader>ww", ":w<CR>") -- save
 keymap.set("n", "gx", ":!open <c-r><c-a><CR>") -- open URL under cursor
-keymap.set("v", "<leader>p", "\"_dP")
+keymap.set("v", "<leader>p", '"_dP')
 
 -- Split window management
 keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
@@ -82,8 +82,8 @@ keymap.set("n", "<leader>gf", "<cmd>lua vim.lsp.buf.format({async = true})<CR>")
 keymap.set("v", "<leader>gf", "<cmd>lua vim.lsp.buf.format({async = true})<CR>")
 keymap.set("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 keymap.set("n", "<leader>gl", "<cmd>lua vim.diagnostic.open_float()<CR>")
-keymap.set("n", "<leader>gp", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
-keymap.set("n", "<leader>gn", "<cmd>lua vim.diagnostic.goto_next()<CR>")
+keymap.set("n", "<leader>[", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+keymap.set("n", "<leader>]", "<cmd>lua vim.diagnostic.goto_next()<CR>")
 keymap.set("n", "<leader>tr", "<cmd>lua vim.lsp.buf.document_symbol()<CR>")
 keymap.set("i", "<C-Space>", "<cmd>lua vim.lsp.buf.completion()<CR>")
 keymap.set("n", "d[", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
@@ -113,6 +113,17 @@ keymap.set("n", "<leader>tm", function()
 	end
 end)
 
+keymap.set("n", "<leader>tg", function()
+	if vim.bo.filetype == "java" then
+		require("jdtls.tests").generate()
+	end
+end)
+
+keymap.set("n", "<leader>ti", function()
+	if vim.bo.filetype == "java" then
+		require("jdtls.tests").goto_subjects()
+	end
+end)
 -- Debugging
 keymap.set("n", "<leader>bb", "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
 keymap.set("n", "<leader>bc", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>")
