@@ -117,3 +117,48 @@ end
 
 jdtls.start_or_attach(config)
 
+local keymap = vim.keymap
+
+keymap.set("n", "<leader>go", function()
+	if vim.bo.filetype == "java" then
+		require("jdtls").organize_imports()
+	end
+end)
+
+keymap.set("n", "<leader>gu", function()
+	if vim.bo.filetype == "java" then
+		require("jdtls").update_projects_config()
+	end
+end)
+
+keymap.set("n", "<leader>tc", function()
+	if vim.bo.filetype == "java" then
+		require("jdtls").test_class()
+	end
+end)
+
+keymap.set("n", "<leader>tm", function()
+	if vim.bo.filetype == "java" then
+		require("jdtls").test_nearest_method()
+	end
+end)
+
+keymap.set("n", "<leader>tg", function()
+	if vim.bo.filetype == "java" then
+		require("jdtls.tests").generate()
+	end
+end)
+
+keymap.set("n", "<leader>ti", function()
+	if vim.bo.filetype == "java" then
+		require("jdtls.tests").goto_subjects()
+	end
+end)
+
+keymap.set("n", "<leader>rv", function()
+	if vim.bo.filetype == "java" then
+		require("jdtls").extract_variable()
+	end
+end)
+
+
