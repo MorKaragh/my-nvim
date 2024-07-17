@@ -34,6 +34,7 @@ keymap.set("n", "<leader>cj", ":diffget 1<CR>") -- get diff from left (local) du
 keymap.set("n", "<leader>ck", ":diffget 3<CR>") -- get diff from right (remote) during merge
 keymap.set("n", "<leader>cn", "]c") -- next diff hunk
 keymap.set("n", "<leader>cp", "[c") -- previous diff hunk
+keymap.set("n", "<A-Enter>", "o<ESC>") --insert blank line
 
 -- Quickfix keymaps
 keymap.set("n", "<leader>qo", ":copen<CR>") -- open quickfix list
@@ -88,6 +89,7 @@ keymap.set("n", "<leader>tr", "<cmd>lua vim.lsp.buf.document_symbol()<CR>")
 keymap.set("i", "<C-Space>", "<cmd>lua vim.lsp.buf.completion()<CR>")
 keymap.set("n", "d[", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
 keymap.set("n", "d]", "<cmd>lua vim.diagnostic.goto_next()<CR>")
+
 -- Debugging
 keymap.set("n", "<leader>bb", "<cmd>lua require'dap'.toggle_breakpoint()<cr>")
 keymap.set("n", "<leader>bc", "<cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>")
