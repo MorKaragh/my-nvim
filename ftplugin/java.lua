@@ -161,4 +161,10 @@ keymap.set("n", "<leader>rv", function()
 	end
 end)
 
+keymap.set("n", "<leader>rm", function()
+	if vim.bo.filetype == "java" then
+		require("jdtls").extract_method()
+	end
+end)
+
 
