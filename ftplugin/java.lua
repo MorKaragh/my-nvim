@@ -26,7 +26,7 @@ local config = {
 		"--add-opens",
 		"java.base/java.lang=ALL-UNNAMED",
 		"-jar",
-		vim.env.HOME .. "/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.800.v20240330-1250.jar",
+		vim.env.HOME .. "/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar",
 		"-configuration",
 		vim.env.HOME .. "/.local/share/nvim/mason/packages/jdtls/config_linux",
 		"-data",
@@ -167,4 +167,9 @@ keymap.set("n", "<leader>rm", function()
 	end
 end)
 
+keymap.set("v", "<leader>rm", function()
+	if vim.bo.filetype == "java" then
+		require("jdtls").extract_method(true)
+	end
+end)
 
