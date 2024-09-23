@@ -169,7 +169,7 @@ end)
 
 keymap.set("v", "<leader>rm", function()
 	if vim.bo.filetype == "java" then
-		require("jdtls").extract_method(true)
+		require("jdtls").extract_method()
 	end
 end)
 
