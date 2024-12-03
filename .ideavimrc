@@ -1,0 +1,158 @@
+"" .ideavimrc
+
+
+"" Base Settings
+"" ========================================================
+set relativenumber
+set number
+set ideajoin 
+set scrolloff=10
+set linenumber
+set showmode
+set showcmd
+
+set smartcase
+set incsearch
+set hlsearch
+
+set visualbell
+
+" Use system clipboard
+set clipboard+=unnamed   
+
+let mapleader = " "
+
+"" === custom mappings ===
+nnoremap <leader>si :source ~/.ideavimrc<CR>
+nnoremap <A-CR> o<esc>
+
+"" Plugin Settings
+"" ========================================================
+set surround
+set highlightedyank
+set sneak
+set nerdtree
+
+" Easymotion settings
+set easymotion
+set notimeout
+
+
+"" Key mappings
+"" ========================================================
+
+inoremap jk <Esc>
+
+" Tab navigation
+nnoremap <A-n> :tabnext<CR>
+nnoremap <A-p> :tabprev<CR>
+
+" Pane navigation
+nnoremap <A-h> <C-w>h
+nnoremap <A-l> <C-w>l
+nnoremap <A-k> <C-w>k
+nnoremap <A-j> <C-w>j
+
+" Jump between methods
+map [[ <Action>(MethodUp)
+map ]] <Action>(MethodDown)
+map <leader>] <Action>(GotoNextError)
+map <leader>[ <Action>(GotoPreviousError)
+
+
+" Easy visual indentation
+vnoremap < <gv
+vnoremap > >gv
+
+" Execute macro saved in 'q' register
+nnoremap qj @q
+
+" Popup navigation
+imap <C-j> <Action>(PopupMenu-selectNext)
+imap <C-k> <Action>(PopupMenu-selectPrev)
+
+" Clipboard
+vmap <leader>p "_dP
+
+
+" Comment lines
+map gc <action>(CommentByLineComment)
+
+" Jump around with easymotion
+map <leader>j <Plug>(easymotion-s)
+
+" Open NERDTree (use q to exit)
+map <C-m> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeFind<CR>
+
+" Testing
+map <leader>tg <Action>(GenerateTestMethod)
+
+" Folding
+map <leader>zc :action CollapseAllRegions<CR>
+map <leader>zo :action ExpandAllRegions<CR>
+nnoremap <leader>ww :action HideAllWindows <CR>
+
+" Window splits
+map <leader>wv <Action>(SplitVertically)
+map <leader>ws <Action>(SplitHorizontally)
+map <leader>wu <Action>(Unsplit)
+map <leader>wm <Action>(MoveEditorToOppositeTabGroup)
+
+" Display options
+map <leader>xx <action>(ToggleDistractionFreeMode)
+map <leader>zz <action>(ToggleZenMode)
+map <leader>ss <action>(ToggleFullScreen)
+
+" Actions
+map <leader>ca <action>(ShowIntentionActions)
+map <leader>as <action>(SearchEverywhere)
+
+" File navigation
+map <C-p> <action>(GotoFile)
+map <leader>fr <action>(RecentFiles)
+map <leader>fc <action>(FindInPath)
+map <leader><leader> <Action>(RecentFiles)
+map <leader>fl <action>(RecentLocations)
+map <leader>fs <action>(NewScratchFile)
+map <C-o> <action>(Back)
+map <leader>w <action>(FocusEditor)
+map <leader>fu <action>(FindUsages)
+map <leader>fg <action>(FindInPath)
+
+" Close active tab
+map <leader>q <action>(CloseContent)
+
+" Refactoring
+map <leader>rr <Action>(RenameElement)
+map <leader>rm <Action>(ExtractMethod)
+map <leader>ri <Action>(Inline)
+map <leader>rv <Action>(IntroduceVariable)
+map <leader>rf <Action>(IntroduceField)
+map <leader>rs <Action>(ChangeSignature)
+map <leader>rl <Action>(Refactorings.QuickListPopupAction)
+map <leader>tg <Action>(Generate)
+map <leader>gf <Action>(ReformatCode)
+map <leader>go <Action>(OptimizeImports)
+map <leader>mm <Action>(Move)
+
+" Maven
+map <leader>mi <Action>(Maven.Reimport)
+map <leader>mr <Action>(Maven.RunConfigurationMenu)
+
+" Go to code
+nmap <leader>gd <Action>(GotoDeclaration)
+nmap <leader>gt <Action>(GotoTypeDeclaration)
+nmap <leader>gi <Action>(GotoImplementation)
+nmap <leader>ti <Action>(GotoTest)
+nmap <leader>gb <Action>(Forward)
+
+" Git windows
+map <leader>gc <Action>(CommentByLineComment)
+map <leader>gs <Action>(ActivateVersionControlToolWindow)
+map <leader>gb <Action>(Git.Branches)
+
+" Debugging
+map <leader>bb <Action>(ToggleLineBreakpoint)
+map <leader>br <Action>(Debugger.RemoveAllBreakpointsInFile)
+
