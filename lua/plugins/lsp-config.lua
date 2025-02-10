@@ -44,6 +44,9 @@ return {
             lspconfig.lemminx.setup({
                 capabilities = capabilities,
             })
+            lspconfig.tsserver.setup({
+                capabilities = capabilities,
+            })
 		end,
 	},
 	{
