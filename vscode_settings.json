@@ -13,6 +13,7 @@
     // "vim.autoSwitchInputMethod.obtainIMCmd": "D:\\bin\\im-select.exe",
     // "vim.autoSwitchInputMethod.switchIMCmd": "D:\\bin\\im-select.exe {im}",
     "vim.smartRelativeLine": true,
+    "vim.langmap": "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz",
     "vim.visualModeKeyBindings": [
         {
             "before": [
@@ -58,6 +59,26 @@
         }
     ],
     "vim.normalModeKeyBindings": [
+        {
+            "before": [
+                "<leader>",
+                "t",
+                "i"
+            ],
+            "commands": [
+                "java.test.goToTest"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "t",
+                "g"
+            ],
+            "commands": [
+                "editor.action.sourceAction"
+            ]
+        },
         {
             "before": [
                 "<S-k>"
@@ -182,6 +203,16 @@
         {
             "before": [
                 "<leader>",
+                "a",
+                "q"
+            ],
+            "commands": [
+                "workbench.action.closeOtherEditors"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
                 "q"
             ],
             "commands": [
@@ -253,7 +284,7 @@
         "*.ajs": "javascript"
     },
     "background.windowBackgrounds": [
-        "C:/Users/StepanovSA/Pictures/wallpapers/matrix.jpg"
+        "C:/Users/StepanovSA/Pictures/wallpapers/crusade.jpg"
     ],
     "background.autoInstall": true,
     "extensions.autoUpdate": false,
@@ -268,9 +299,17 @@
     "cSpell.languageSettings": [],
     "editor.unicodeHighlight.ambiguousCharacters": false,
     "cSpell.userWords": [
+        "ALFAPOLICY",
+        "alfastrah",
+        "banzaicloud",
+        "jdbc",
         "morkaragh",
+        "PRODSTREAM",
+        "Retryer",
+        "springframework",
         "Unicus",
         "Vaadin",
+        "Wiremock",
         "Кунаева",
         "Кунаевой",
         "НСИС",
@@ -281,5 +320,9 @@
     ],
     "workbench.iconTheme": "eq-material-theme-icons-darker",
     "explorer.confirmDelete": false,
-    "workbench.colorTheme": "Quiet Light"
+    "continue.telemetryEnabled": false,
+    "[xml]": {
+        "editor.defaultFormatter": "redhat.vscode-xml"
+    },
+    "workbench.colorTheme": "Github Light High Contrast"
 }
